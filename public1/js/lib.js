@@ -3,28 +3,44 @@ internsApp = {};
 (function(){
 
 	function fnCreate(){
-		uid = $('#internID').val();
-		var path = 'Interns/' + uid;
-		var internName = $("#internName").val();
-		var internDegree = $("#internDegree").val();
-		var internSupervisor = $("#internSupervisor").val();
-		var internTitle = $("#internTitle").val();
-		var internAbstract = $("#internAbstract").val();
-		var internYear = $("#internYear").val();
-		var data = {
-			Abstract: internAbstract,
-			Degree: internDegree,
-			Student_name: internName,
-			Supervisor: internSupervisor,
-			Title: internTitle,
-			Year: internYear
+		uid = $('#appName').val();
+		var path = 'App_list/' + uid;
+		var package_name = $("#package_name").val();
+		var dev_name = $("#dev_name").val();
+		var dev_url = $("#dev_url").val();
+		var dev_email = $("#dev_email").val();
+		var playstore = $("#playstore").val();
+		var file_size = $("#file_size").val();
+		var app_description = $("#app_description").val();
+		var tags = $("#tags").val();
+		var app_category = $("#app_category").val();
+		var average_rating = $("#average_rating").val();
+		var total_rating = $("#total_rating").val();
+		var no_download = $("#no_download").val();
+		var update_date = $("#update_date").val();
+		var entry_date = $("#entry_date").val();
 
+		var data = {
+		    package_name: package_name,
+			dev_name: dev_name,
+			dev_url: dev_url,
+			dev_email: dev_url,
+			playstore: playstore,
+			file_size: file_size,
+			app_description: app_description,
+			tags: tags,
+			app_category: app_category,
+			average_rating: average_rating,
+			total_rating: total_rating,
+			no_download: no_download,
+			update_date: update_date,
+			entry_date: entry_date
 		}
 		fb.data.create(path, data, messageHandler);
 	}
 
 	function fnRead(){
-		var path = 'interns/';
+		var path = 'App_list/';
 		fb.data.read(path, successFn, messageHandler);
 		function successFn(snapShot){
 			if(!snapShot){
@@ -47,8 +63,8 @@ internsApp = {};
 					interns.push(newElement);
 					console.log(key, name, project, team);
 	  		});
-				console.log(interns);
-				internsObj = { internsBinding: interns}
+				console.log(App_list);
+				internsObj = { internsBinding: App_lists}
 				ko.applyBindings(internsObj);
 		}
 }
